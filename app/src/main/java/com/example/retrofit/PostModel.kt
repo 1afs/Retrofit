@@ -17,6 +17,4 @@ class PostModel {
     var body: String = ""
 
 
-
-
 }

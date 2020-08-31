@@ -2,6 +2,7 @@ package com.example.retrofit
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -11,6 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+         idTextView.setText("oi")
 
         val remote = RetrofitClient.criarServico(PostService::class.java)
 
@@ -20,11 +22,14 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse( call: Call<List<PostModel>>, response: Response<List<PostModel>>) {
 
                 val s = response.body()
+                idTextView.setText(s.toString() + ", porém deu bom")
+
 
             }
 
             override fun onFailure(call: Call<List<PostModel>>, t: Throwable) {
                 val s = t.message
+                idTextView.setText(s.toString() + ", então deu ruim")
             }
         })
 
