@@ -5,6 +5,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
+// Camada RetrofitClient
+
 //Singleton
 class RetrofitClient private constructor(){
 
@@ -12,7 +14,7 @@ class RetrofitClient private constructor(){
 
      private lateinit var retrofit: Retrofit
      private val baseUrl = "http://jsonplaceholder.typicode.com/"
-     
+
      private fun getRetrofitInstance(): Retrofit{
 
          val httpClient = OkHttpClient.Builder()

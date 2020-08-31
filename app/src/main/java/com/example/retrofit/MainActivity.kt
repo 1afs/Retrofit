@@ -14,12 +14,16 @@ class MainActivity : AppCompatActivity() {
 
          idTextView.setText("oi")
 
+        // Client onde é criado a instancia do serviço
         val remote = RetrofitClient.criarServico(PostService::class.java)
+        // Utiliza o Client con funções da interface
 
         val call : Call<List<PostModel>> = remote.list()
 
+        // Coloca em uma lista para executar assincronamente
         val response = call.enqueue(object : Callback<List<PostModel>>{
             override fun onResponse( call: Call<List<PostModel>>, response: Response<List<PostModel>>) {
+
 
                 val s = response.body()
                 idTextView.setText(s.toString() + ", porém deu bom")
