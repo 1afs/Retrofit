@@ -12,9 +12,7 @@ class RetrofitClient private constructor(){
 
      private lateinit var retrofit: Retrofit
      private val baseUrl = "http://jsonplaceholder.typicode.com/"
-
-
-
+     
      private fun getRetrofitInstance(): Retrofit{
 
          val httpClient = OkHttpClient.Builder()
